@@ -4,13 +4,12 @@ import java.security.SecureRandom;
 /*
  * Simulation of a game of Craps.
  * Used to demonstrate random values and enums.
- * From "Java How To Program, 10/e, Early Objects" - Chapter 6.
+ * Based on "Java How To Program, 10/e, Early Objects" - Chapter 6.
  */
 
 public class Craps {
-
     private static final SecureRandom randNum = new SecureRandom();
-    private enum Status {
+    private enum Status { //Enum of different possible statuses
         CONTINUE,
         WON,
         LOST
@@ -48,10 +47,10 @@ public class Craps {
         }    
         
         //While game is still going
-        while(gameStat == Status.CONTINUE) {
+        while (gameStat == Status.CONTINUE) {
             diceSum = rollDice();  //Roll again
             
-            if(diceSum == myPoint) {
+            if (diceSum == myPoint) {
                 gameStat = Status.WON;  //Matched point on new roll
             } else if (diceSum == SEVEN) {
                 gameStat = Status.LOST;  //Rolled 7 before matching point
@@ -59,12 +58,12 @@ public class Craps {
         }
         
         //Outcome message
-        if(gameStat == Status.WON) {
+        if (gameStat == Status.WON) {
             System.out.println("You win!");
         } else {
             System.out.println("You lose :(");
         }
-    }//End of main
+    } //End of main
     
     public static int rollDice() {
         int die1 = 1 + randNum.nextInt(6);
@@ -75,6 +74,6 @@ public class Craps {
         System.out.printf("You rolled %d + %d = %d%n", die1, die2, sum);
         
         return sum;
-    }//End of rollDice
+    } //End of rollDice
     
-}//End of class Craps
+} //End of class Craps
